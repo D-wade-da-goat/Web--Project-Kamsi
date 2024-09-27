@@ -1,0 +1,78 @@
+
+<!-- 
+This HTML document represents a login page for "Folio."  It has a header section that displays the login heading, 
+a form for entering a username and password, and a dropdown menu for selecting a grade.
+
+The authentication function checks the entered credentials and takes the user to the main page.
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+    <link rel="stylesheet" type="text/css" href="css/background-style.css">
+    <title>Login Page</title>
+</head>
+<body style="background-color:rgb(0, 0, 0);" align="center">
+    <!-- Header section with the login title -->
+    <header>
+        <h1>Log In to <del>Port</del> Folio</h1><br/>
+    </header>
+
+    <main>
+        <section>
+            <!-- form for username and password -->
+            <p>
+                <u><i>Please enter your</i> <b>username</b> <i>and</i> <b>password</b></u><br/>
+            </p>
+
+            <!-- User login form -->
+            <form name="user-login-form" id="login-form" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="user" placeholder="Please enter your username" size="30"/><br>
+                
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="pwd" placeholder="Please enter your password" size="30"/><br>
+            </form>
+
+            <!-- Grade selection form -->
+            <form name="grade-class" id="grade-class" method="post">
+                <label for="Grade">Choose one:</label>
+                <select name="Grade" id="Grade">
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </form><br/>
+
+            <!-- Week selection form -->
+            <form>
+                <label for="week">Select a week:</label>
+                <input type="week" id="week" name="week"/>
+            </form><br/>
+
+            <!-- Login button triggering authentication -->
+            <button type="submit" onclick="auth()">Log In</button>
+        </section>
+    </main>
+
+    <!-- for handling login authentication -->
+    <script>
+        function auth() {
+            // Retrieve user inputs
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var grade = document.getElementById('Grade').value;
+
+            // Check credentials
+            if (username === 'Kamsi' && password === 'Superdunk355' && grade === '10') {
+                window.location.assign('index.html'); // Redirect on success
+                alert("Login successful");
+            } else {
+                alert("Invalid information"); // Show error on failure
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
